@@ -1,0 +1,38 @@
+{# src/KK/SatoriBundle/Resources/views/Page/show.html.twig #}
+{% extends 'KKSatoriBundle::layout.html.twig' %}
+
+{% block body %}
+        <div id="container">
+            <div id="content">
+
+                <div id="" class="post">
+                    <h2 class="entry-title"><a href="">{{ blog.title }}</a></h2>
+                    <div class="entry-content">
+                        {% autoescape false %}
+                            {{ include(template_from_string(blog.blog)) }}
+                            {#<p>{{ blog.blog }}</p>#}
+                        {% endautoescape %}
+                        <p class="tag-links">
+                            <span>Tags:</span>
+                            {% for tag in blog.tags %}
+                                <a href="{{ path('KKSatoriBundle_tag', { "tag": tag.tag }) }}" rel="tag">{{ tag.tag }}</a>
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <dl class="entry-meta">
+                        <dt>Published:</dt>
+                        <dd class="entry_date">{{ blog.created|date('F j, Y - h:iA') }}</dd>
+                        <dt>Author:</dt>
+                        <dd class="">By <a class="" href="" title="">{{ blog.author }}</a></dd>
+                        <dt>Categories:</dt>
+                        <dd class="cat-links">
+                            <ul class="post-categories">
+                                <li><a href="{{ path('KKSatoriBundle_category', { 'category': blog.category.title }) }}" title="" rel="category tag">{{ blog.category.title }}</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div><!-- .post -->
+
+            </div><!-- #content -->
+        </div><!-- #container -->
+{% endblock %}

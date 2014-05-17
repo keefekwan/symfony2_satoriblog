@@ -1,0 +1,47 @@
+{# src/KK/SatoriBundle/Resource/views/category.html.twig #}
+{% extends 'KKSatoriBundle::layout.html.twig' %}
+
+{% block body %}
+
+        <div id="container">
+            <div id="content">
+
+                <h2 class="page-title">Category Archives: <span>{{ category.title }}</span></h2>
+
+    {% for blog in blogs %}
+
+                <div id="" class="post">
+                    <h2 class="entry-title"><a href="{{ path('KKSatoriBundle_show', { 'slug': blog.slug }) }}" title="{{ blog.title }}" rel="bookmark">{{ blog.title }}</a></h2>
+                    <div class="entry-content">
+                        {% autoescape false %}
+                            {{ include(template_from_string(blog.blog|truncate(2000))) }}
+                            {#<p>{{ blog.blog|truncate(2000) }}</p>#}
+                        {% endautoescape %}
+                        <p class="tag-links">
+                            <span>Tags:</span>
+                            {% for tag in blog.tags %}
+                                <a href="{{ path('KKSatoriBundle_tag', { "tag": tag.tag }) }}" rel="tag">{{ tag.tag }}</a>
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <dl class="entry-meta">
+                        <dt>Published:</dt>
+                        <dd class="entry_date">{{ blog.created|date('F j, Y - h:iA') }}</dd>
+                        <dt>Author:</dt>
+                        <dd class="">By <a class="" href="" title="">{{ blog.author }}</a></dd>
+                        <dt>Categories:</dt>
+                        <dd class="cat-links">
+                            <ul class="post-categories">
+
+                                <li><a href="{{ path('KKSatoriBundle_category', { 'category': category.title }) }}" title="" rel="category tag">{{ category.title }}</a></li>
+
+                            </ul>
+                        </dd>
+                    </dl>
+                </div><!-- .post -->
+
+            </div><!-- #content -->
+        </div><!-- #container -->
+
+    {% endfor %}
+{% endblock %}

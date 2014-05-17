@@ -1,0 +1,7 @@
+kk_satori:
+    resource: "@KKSatoriBundle/Resources/config/routing.yml"
+    prefix:   /
+
+kk_satori_annotation:
+    resource: "@KKSatoriBundle/Controller"
+    type: annotation

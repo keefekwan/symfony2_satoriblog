@@ -1,0 +1,22 @@
+kk_satori_home:
+    pattern:  /
+    defaults: { _controller: KKSatoriBundle:Page:index }
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+
+login:
+    path: /login
+    defaults: { _controller: LSHealthFitnessBundle:Login:login }
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout

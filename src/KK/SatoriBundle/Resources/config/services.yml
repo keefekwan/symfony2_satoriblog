@@ -1,0 +1,36 @@
+parameters:
+#    kk_satori.example.class: KK\SatoriBundle\Example
+
+services:
+#    kk_satori.example:
+#        class: %kk_satori.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+services:
+    kk.satori.admin.category:
+        class: KK\SatoriBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Category, label: Categories }
+        arguments:
+            - ~
+            - KK\SatoriBundle\Entity\Category
+            - 'KKSatoriBundle:CategoryAdmin'
+
+    kk.satori.admin.tag:
+        class: KK\SatoriBundle\Admin\TagAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Tag, label: Tags }
+        arguments:
+            - ~
+            - KK\SatoriBundle\Entity\Tag
+            - 'KKSatoriBundle:TagAdmin'
+
+    kk.jobeet.admin.blog:
+        class: KK\SatoriBundle\Admin\BlogAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Blog, label: Blogs }
+        arguments:
+            - ~
+            - KK\SatoriBundle\Entity\Blog
+            - 'KKSatoriBundle:BlogAdmin'

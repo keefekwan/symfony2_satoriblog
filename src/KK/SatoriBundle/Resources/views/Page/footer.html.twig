@@ -1,0 +1,95 @@
+{# src/KK/SatoriBundle/Resources/views/Page/footer.html.twig #}
+
+{% block footer %}
+
+    <div class="yui-gb" id="sidebar-wrapper">
+        <div id="primary" class="sidebar yui-u first">
+            <ul class="xoxo">
+
+                <li id="" class="">
+                    <form action="{{ path('KKSatoriBundle_search') }}" method="get">
+                        <div>
+                            <label class="screen-reader-text" for="s">Search for:</label>
+                            <input type="text" value="{{ app.request.query.get('q') }}" name="q" id="s" />
+                            <input type="submit" id="searchsubmit" value="Search" />
+                        </div>
+                    </form>
+                </li>
+
+                <li id="categories-2" class="">
+                    <h3 class="widgettitle">Categories</h3>
+                    <ul>
+                        <li class="cat-item cat-item-1"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category1'}) }}" title="">Category 1</a></li>
+                        <li class="cat-item cat-item-2"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category2'}) }}" title="">Category 2</a></li>
+                        <li class="cat-item cat-item-5"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category3'}) }}" title="">Category 3</a></li>
+                        <li class="cat-item cat-item-3"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category4'}) }}" title="">Category 4</a></li>
+                        <li class="cat-item cat-item-0"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category5'}) }}" title="">Category 5</a></li>
+                        <li class="cat-item cat-item-1"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category6'}) }}" title="">Category 6</a></li>
+                        <li class="cat-item cat-item-1"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category7'}) }}" title="">Category 7</a></li>
+                        <li class="cat-item cat-item-1"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category8'}) }}" title="">Category 8</a></li>
+                        <li class="cat-item cat-item-1"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category9'}) }}" title="">Category 9</a></li>
+                        <li class="cat-item cat-item-1"><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category10'}) }}" title="">Category 10</a></li>
+                    </ul>
+
+                </li>
+
+                <li id="recent-posts-2" class="widget widget_recent_entries">
+                    <h3 class="widgettitle">Recent Posts</h3>
+                    <ul>
+                        {% for blogs in latestBlogs %}
+                        <li>
+                            <a href="{{ path('KKSatoriBundle_show', { 'slug': blogs.slug }) }}">{{ blogs.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+            </ul>
+        </div><!-- #primary .sidebar -->
+
+        <div id="secondary" class="sidebar yui-u">
+            <ul class="xoxo">
+
+                <li id="pages-2" class="widget widget_pages">
+                    <h3 class="widgettitle">Pages</h3>
+                    <ul>
+                        <li class="page_item page-item-36"><a href="{{ path('KKSatoriBundle_about') }}">About Us</a></li>
+                        <li class="page_item page-item-38"><a href="">Privacy Policy</a></li>
+                    </ul>
+
+                </li>
+
+                <li id="tag_cloud-2" class="widget widget_tag_cloud">
+                    <h3 class="widgettitle">Tags</h3>
+                    <div class="tagcloud">
+                        {% for tag, weight in tags %}
+                            {#{{ dump(tag) }}#}
+                            <span class="weight-{{ weight }}"><a href="{{ path('KKSatoriBundle_tag', { 'tag': tag }) }}">{{ tag }}</a></span>
+                        {% else %}
+                            <p>There are no tags</p>
+                        {% endfor %}
+                    </div>
+                </li>
+            </ul>
+        </div><!-- #secondary .sidebar -->
+
+        <div id="terciary" class="sidebar yui-u">
+            <ul class="xoxo">
+                <li id="archives">
+                    <h3 class="widgettitle">Archives</h3>
+                    <ul>
+                        <li><a href='{{ path('KKSatoriBundle_archive', { 'year': '2014', 'month': 'May' }) }}'>May 2014</a></li>
+                        <li><a href='{{ path('KKSatoriBundle_archive', { 'year': '2014', 'month': 'April' }) }}'>April 2014</a></li>
+                        <li><a href='{{ path('KKSatoriBundle_archive', { 'year': '2014', 'month': 'March' }) }}'>March 2014</a></li>
+                        <li><a href='{{ path('KKSatoriBundle_archive', { 'year': '2014', 'month': 'February' }) }}'>February 2014</a></li>
+                        <li><a href='{{ path('KKSatoriBundle_archive', { 'year': '2014', 'month': 'January' }) }}'>January 2014</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+    </div><!-- #footer -->
+    </div><!-- #wrapper .hfeed -->
+{% endblock %}

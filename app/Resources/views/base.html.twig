@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" prefix="og: http://ogp.me/ns#">
+<head profile="http://gmpg.org/xfn/11">
+        <meta charset="UTF-8" />
+        <title>{% block title %}Satori Blog{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel='stylesheet' id='contact-form-7-css'  href='' type='text/css' media='all' />
+            <link href="{{ asset('bundles/kksatori/css/style.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('bundles/kksatori/css/reset-fonts-grids.css') }}" type="text/css" rel="stylesheet" />
+
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+
+        <div id="header">
+            <h1 id="blog-title"><span><a href="{{ path('kk_satori_home') }}" title="Satori Blog" rel="home">Satori Blog</a></span></h1>
+            <div id="blog-description">Weblog about life and everything inbetween!</div>
+        </div><!--  #header -->
+
+        {% block category %}
+        <div id="access">
+            <div class="skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+            <div id="menu" class="menu-menu-container">
+                <ul id="menu-menu" class="menu">
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category1' }) }}">Category 1</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category2' }) }}">Category 2</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category3' }) }}">Category 3</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category4' }) }}">Category 4</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category5' }) }}">Category 5</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category6' }) }}">Category 6</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category7' }) }}">Category 7</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category8' }) }}">Category 8</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category9' }) }}">Category 9</a></li>
+                    <li id="" class=""><a href="{{ path('KKSatoriBundle_category', { 'category': 'Category10' }) }}">Category 10</a></li>
+                </ul>
+            </div>
+        </div><!-- #access --><br><br>
+        {% endblock %}
+
+        {% block body %}{% endblock %}
+
+        {% block footer %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
