@@ -60,7 +60,7 @@ class PageController extends Controller
             throw $this->createNotFoundException('Unable to find blog posts');
         }
 
-        $blogs = $category->getBlogs();
+        $blogs = $category->getBlogs(); // Gets blogs from each category selected
 
         return array(
             'blogs'    => $blogs,
@@ -78,7 +78,7 @@ class PageController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $blogs = $em->getRepository('KKSatoriBundle:Blog')
-            ->getPostsByMonth($year, $month);
+            ->getBlogsByMonth($year, $month);
 
         if (!$blogs) {
             throw $this->createNotFoundException('Unable to find blog posts');
@@ -100,7 +100,7 @@ class PageController extends Controller
         $tags = $em->getRepository('KKSatoriBundle:Tag')
             ->findOneByTag($tag);
 
-        $blogs = $tags->getBlogs();
+        $blogs = $tags->getBlogs(); // Gets blogs from each tag selected
 
         return array(
             'blogs' => $blogs,
@@ -119,19 +119,15 @@ class PageController extends Controller
         $latestBlogs = $em->getRepository('KKSatoriBundle:Blog')
             ->getBlogs($recentBlogLimit);
 
-        $tags = $em->getRepository('KKSatoriBundle:Tag')
-            ->getTags();
-
         $blogs = $em->getRepository('KKSatoriBundle:Blog')
             ->getBlogs();
 
-        $tagWeights = $em->getRepository('KKSatoriBundle:Tag')
+        $tagWeights = $em->getRepository('KKSatoriBundle:Tag') // getTagWeights from TagRepository weighs the tags from blogs
             ->getTagWeights($blogs);
 
         return array(
             'latestBlogs' => $latestBlogs,
             'tags'        => $tagWeights,
-
         );
     }
 }

@@ -22,19 +22,7 @@ class BlogRepository extends EntityRepository
             ->getResult();
     }
 
-    public function getBlogsByCategory()
-    {
-        $qb = $this->createQueryBuilder('b')
-            ->select('b, c, tag')
-            ->leftJoin('b.category', 'c')
-            ->leftJoin('b.tags', 'tag')
-            ->addOrderBy('b.created', 'DESC');
-
-        return $qb->getQuery()
-            ->getResult();
-    }
-
-    public function getPostsByMonth($year, $month)
+    public function getBlogsByMonth($year, $month)
     {
         // Query for blog posts in each month
         $date = new \DateTime("{$year}-{$month}-01");
@@ -50,4 +38,15 @@ class BlogRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getBlogsByCategory()
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->select('b, c, tag')
+            ->leftJoin('b.category', 'c')
+            ->leftJoin('b.tags', 'tag')
+            ->addOrderBy('b.created', 'DESC');
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

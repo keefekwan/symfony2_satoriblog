@@ -11,8 +11,7 @@
                     <h2 class="entry-title"><a href="{{ path('KKSatoriBundle_show', { 'slug': blog.slug }) }}" title="{{ blog.title }}" rel="bookmark">{{ blog.title }}</a></h2>
                     <div class="entry-content">
                         {% autoescape false %}
-                            {{ include(template_from_string(blog.blog|truncate(2000))) }}
-                            {#<p>{{ blog.blog|truncate(2000) }}</p>#}
+                            {{ include(template_from_string(blog.blog|truncate(2000))) }} {# uses Twig function template_from_string to display images from fixtures #}
                         {% endautoescape %}
                         <p class="tag-links">
                             <span>Tags:</span>
@@ -30,7 +29,6 @@
                         <dd class="cat-links">
                             <ul class="post-categories">
                                 <li><a href="{{ path('KKSatoriBundle_category', { 'category': blog.category.title }) }}" title="" rel="category tag">{{ blog.category.title }}</a></li>
-                                {#<li><a href="" title="View all posts in Weightloss" rel="category tag">Category 2</a></li>#}
                             </ul>
                         </dd>
                     </dl>

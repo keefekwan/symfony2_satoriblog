@@ -79,7 +79,6 @@ services:
         tags:
             - { name: twig.extension }
 
-
     search:
         class: KK\SatoriBundle\Services\Search
         arguments: [@request_stack, @doctrine]

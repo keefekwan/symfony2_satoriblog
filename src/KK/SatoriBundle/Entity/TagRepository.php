@@ -48,9 +48,9 @@ class TagRepository extends EntityRepository
         if (empty($blogs))
             return $tagWeights;
 
-        foreach ($blogs as $blog) {
+        foreach ($blogs as $blog) { // Loop through all blogs and blog properties
 
-            foreach ($blog->getTags() as $tag) { // Iterates through all tags, if a tag is set/used more than once then a +1 is added
+            foreach ($blog->getTags() as $tag) { // Iterates through all blog tag properties, if a tag is set/used more than once then a +1 is added
                 $tagWeights[$tag->getTag()] = (isset($tagWeights[$tag->getTag()])) ? $tagWeights[$tag->getTag()] + 1 : 1;
             }
         }

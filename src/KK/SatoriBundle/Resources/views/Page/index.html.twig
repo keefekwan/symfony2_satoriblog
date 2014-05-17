@@ -12,13 +12,12 @@
                     <h2 class="entry-title"><a href="{{ path('KKSatoriBundle_show', { 'slug': blog.slug }) }}" title="{{ blog.title }}" rel="bookmark">{{ blog.title }}</a></h2>
                         <div class="entry-content">
                             {% autoescape false %}
-                                {{ include(template_from_string(blog.blog|truncate(2000))) }}
-                                {#<p>{{ blog.blog|truncate(2000) }}</p>#}
+                                {{ include(template_from_string(blog.blog|truncate(2000))) }} {# uses Twig function template_from_string to display images from fixtures #}
                             {% endautoescape %}
 
                             <p class="tag-links">
                             <span>Tags:</span>
-                            {% for tag in blog.tags %}
+                            {% for tag in blog.tags %} {# loop through all tag properties of blog #}
                              <a href="{{ path('KKSatoriBundle_tag', { "tag": tag.tag }) }}" rel="tag">{{ tag.tag }}</a>
                             {% endfor %}
                             </p>

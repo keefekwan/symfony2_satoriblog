@@ -33,18 +33,12 @@ class BlogController extends Controller
 
         $results = $query->search();
 
-        $recentBlogLimit = $this->container->getParameter('kk_satori.latest.blogs_limit');
-
-        $latestBlogs = $em->getRepository('KKSatoriBundle:Blog')
-            ->getBlogs($recentBlogLimit);
-
         $tags = $em->getRepository('KKSatoriBundle:Tag')
             ->getTags();
 
         return array(
             'query'        => $query,
             'results'      => $results['results'],
-            'latestBlogs'  => $latestBlogs,
             'tags'         => $tags,
         );
     }

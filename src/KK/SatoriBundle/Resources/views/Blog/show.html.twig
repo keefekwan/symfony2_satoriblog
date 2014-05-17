@@ -9,8 +9,7 @@
                     <h2 class="entry-title"><a href="">{{ blog.title }}</a></h2>
                     <div class="entry-content">
                         {% autoescape false %}
-                            {{ include(template_from_string(blog.blog)) }}
-                            {#<p>{{ blog.blog }}</p>#}
+                            {{ include(template_from_string(blog.blog)) }} {# uses Twig function template_from_string to display images from fixtures #}
                         {% endautoescape %}
                         <p class="tag-links">
                             <span>Tags:</span>
