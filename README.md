@@ -1,3 +1,16 @@
+Symfony2 Satori Blog
+========================
+
+Features:
+
+Satorii WP theme (https://github.com/felipelavinz/satorii)
+Sonata Admin Bundle for CRUD functionality
+Website title search
+Blog categories
+Blog recent posts
+Blog archives
+Tags and Tag Cloud
+
 Symfony Standard Edition
 ========================
 
